@@ -3,6 +3,8 @@ import { config } from 'dotenv';
 import mongooose from 'mongoose';
 import helmet from 'helmet';
 import loginUser, { registerUser } from './src/route/userRoute.js';
+import axios from 'axios';
+import getCompanies from './src/route/companies.js';
 
 config();
 
@@ -18,12 +20,13 @@ mongooose
 	.connect(mongourl, { dbName: 'Softline' })
 	.then((con) => {
 		app.get('/', async (req, res) => {
-			res.send({ ok: true, message: 'server is online' });
+			res.send({ ok: true, message: companies.data });
 		});
 
 		app.listen(port, () => {
 			console.log('Server is online');
 		});
+		app.get('/api/v1/companies', getCompanies);
 		app.post('/auth/login', loginUser);
 		app.post('/auth/register', registerUser);
 	})
