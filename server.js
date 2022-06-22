@@ -20,11 +20,11 @@ mongooose
 	.connect(mongourl, { dbName: 'Softline' })
 	.then((con) => {
 		app.get('/', async (req, res) => {
-			res.send({ ok: true, message: companies.data });
+			res.send({ ok: true, message: 'server is online' });
 		});
 
 		app.listen(port, () => {
-			console.log('Server is online');
+			console.log(`Server is online on port:${port}`);
 		});
 		app.get('/api/v1/companies', getCompanies);
 		app.post('/auth/login', loginUser);
