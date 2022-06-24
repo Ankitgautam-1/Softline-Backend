@@ -16,9 +16,14 @@ app.use(cors((allowedOrigins = allowedOrigins)));
 
 const mongourl = process.env.MONGO_URL;
 const port = process.env.PORT;
-
+const db = process.env.DB_NAME;
+const options = {
+	dbName: db,
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+};
 mongooose
-	.connect(mongourl, { dbName: 'Softline' })
+	.connect(mongourl, options)
 	.then((con) => {
 		app.get('/', async (req, res) => {
 			res.send({ ok: true, message: 'server is online' });

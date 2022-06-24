@@ -57,6 +57,26 @@ const getServicItem = async (req, res) => {
 		res.status(400).send({ ok: false, error: error });
 	}
 };
+const getAgents = async (req, res) => {
+	try {
+		const agents = await axiosConfig('/api/v2/agents', {
+			auth: {
+				username: process.env.API_KEY,
+			},
+		});
+
+		if (agents.status === 200) {
+			res.status(200).send({
+				ok: true,
+				data: agents.data,
+			});
+		} else {
+			res.status(400).send({ ok: false, error: agents.statusText });
+		}
+	} catch (error) {
+		res.status(400).send({ ok: false, error: error });
+	}
+};
 
 export default getCompanies;
-export { getServicePackage, getServicItem };
+export { getServicePackage, getServicItem, getAgents };
