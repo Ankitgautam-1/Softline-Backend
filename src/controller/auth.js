@@ -1,6 +1,6 @@
 import UserModel from '../model/UserModel.js';
 import bcrypt from 'bcrypt';
-import signAccessToken from '../Helpers/jwtHelpers.js';
+import signAccessToken from '../helpers/jwtHelpers.js';
 import authSchema from '../schema/authSchema.js';
 const loginUser = async (req, res) => {
 	const { email, password } = req.body;

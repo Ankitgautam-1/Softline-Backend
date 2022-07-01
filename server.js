@@ -3,10 +3,9 @@ import { config } from 'dotenv';
 import mongooose from 'mongoose';
 import helmet from 'helmet';
 import cors from 'cors';
-
-import authRoute from './src/controller/auth.js';
-import verifyAccessToken from './src/middlewares/verifyAccessToken.js';
 import cookieParser from 'cookie-parser';
+import authRoute from './src/route/Auth/authRoute.js';
+import verifyAccessToken from './src/middlewares/verifyAccessToken.js';
 import contractRoute from './src/route/contract/contractRoute.js';
 import companiesRoute from './src/route/company/companiesRoute.js';
 config();
