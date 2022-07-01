@@ -3,7 +3,8 @@ import getCompanies, {
 	getAgents,
 	getServicePackage,
 	getServicItem,
-} from './companies.js';
+} from '../../controller/companies.js';
+
 const Router = express.Router();
 
 const companiesRoute = Router.get('/api/v1/getCompanies', getCompanies)

@@ -1,5 +1,4 @@
-import axios from 'axios';
-import axiosConfig from '../Utils/axiosConfig.js';
+import axiosConfig from '../utils/axiosConfig.js';
 
 const getCompanies = async (req, res) => {
 	try {
