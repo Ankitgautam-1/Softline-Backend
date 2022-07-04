@@ -1,11 +1,9 @@
 import Jwt from 'jsonwebtoken';
 
 const verifyAccessToken = async (req, res, next) => {
-	const auth = req.headers.authorization;
-
 	try {
-		const accessTokenArray = auth.split(' ');
-		const accessToken = accessTokenArray[1];
+		const accessToken = req.cookies.accessToken;
+
 		const access_token_scerect = process.env.SECRECT_KEY_ACCESS;
 		Jwt.verify(accessToken, access_token_scerect, function (err, decoded) {
 			if (decoded) {

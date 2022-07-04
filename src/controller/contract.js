@@ -41,9 +41,12 @@ const createContract = async (req, res) => {
 		}
 	} catch (error) {
 		if (error.isJoi) {
-			res.send({ ok: true, error: error.details[0].message });
+			res.status(401).send({
+				ok: false,
+				error: error.details[0].message,
+			});
 		} else {
-			res.send({ ok: true, error: error });
+			res.status(401).send({ ok: false, error: error });
 		}
 	}
 };

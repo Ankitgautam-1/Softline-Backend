@@ -46,8 +46,8 @@ const ContractSchema = new mongoose.Schema({
 		type: String,
 	},
 	remarks: {
-		required: true,
-		type: Number,
+		required: false,
+		type: String,
 	},
 	ownerId: {
 		required: true,

@@ -12,7 +12,7 @@ const contractSchema = Joi.object({
 	typeOfHours: Joi.string().required(),
 	totalEntitlement: Joi.number().required(),
 	projectManager: Joi.string().required(),
-	remarks: Joi.number().required(),
+	remarks: Joi.string().required(),
 	ownerId: Joi.string().required(),
 });
 
