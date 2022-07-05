@@ -36,11 +36,7 @@ mongooose
 	.connect(mongourl, options)
 	.then((con) => {
 		app.get('/', async (req, res) => {
-			var expires = new Date(Date.now() + 3600 * 1000).toUTCString();
-			// res.cookie('accessToken', `Bearer ${accessToken}`, {
-			// 		expires:new Date.now()+60
-			// });
-			req.body.req.res.send({ ok: true, message: 'server is online' });
+			res.send({ ok: true, message: 'server is online' });
 		});
 		app.use(authRoute);
 
